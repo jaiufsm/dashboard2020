@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Tab Two
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let row of graficos">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Fluxo de envio - {{row.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <google-chart [data]="row.chart"></google-chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

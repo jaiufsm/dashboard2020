@@ -1,9 +1,43 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Tab Three
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let card of cards">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{card.titulo}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Total de trabalhos: {{card.totalTrabalhos}}</p>
+            <p>Total de ausentes: {{card.totalAusentes}}</p>
+            <table>
+              <tr>
+                <th>Questão</th>
+                <th>A - Melhor</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E - Pior</th>
+              </tr>
+              <tr *ngFor="let questao of card.questoes">
+                <td>{{questao.titulo}}</td>
+                <td>{{questao.respostas[0]}}</td>
+                <td>{{questao.respostas[1]}}</td>
+                <td>{{questao.respostas[2]}}</td>
+                <td>{{questao.respostas[3]}}</td>
+                <td>{{questao.respostas[4]}}</td>
+              </tr>
+            </table>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
